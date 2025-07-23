@@ -75,7 +75,7 @@ public partial struct CubeMeshSystem : ISystem
             float cubeIndexNormalized = (float)cube.cubeIndex / (float)maxCubes;
             float3 newPosition = float3.zero;
             newPosition.x = math.lerp(-30,30,cubeIndexNormalized);
-            newPosition.y = 10*math.sin(cubeIndexNormalized - elapsedTime);
+            newPosition.y = 10*math.sin(cubeIndexNormalized - elapsedTime) + (4f + cubeIndexNormalized * 10f) * math.sin(cubeIndexNormalized * 10f - elapsedTime);
             transformAspect.worldPosition = newPosition;
         }
     }
